@@ -20,8 +20,8 @@
 + (UIButton *)buttonWithType:(UIButtonType)buttonType
 {
     T8SelfTimerButton *button = [super buttonWithType:buttonType];
-    button.functionInterval = 5;
-    [button setTitle:NSLocalizedString(@"Get verify code", nil) forState:UIControlStateNormal];
+    button.functionInterval = 60;
+    [button setTitle:@"获取验证码" forState:UIControlStateNormal];
     return button;
 }
 
@@ -29,13 +29,13 @@
 - (void)timeReduce
 {
     if (self.leftInterval>0) {
-        [self setTitle:[NSString stringWithFormat:@"%@ (%ld)",NSLocalizedString(@"Resend", nil),(long)self.leftInterval] forState:UIControlStateNormal];
+        [self setTitle:[NSString stringWithFormat:@"%@ (%ld)",@"重发",(long)self.leftInterval] forState:UIControlStateNormal];
         self.leftInterval--;
     }else{
         [self.timer invalidate];
         self.timer = nil;
         self.enabled = YES;
-        [self setTitle:NSLocalizedString(@"Get verify code", nil) forState:UIControlStateNormal];
+        [self setTitle:@"获取验证码" forState:UIControlStateNormal];
     }
 }
 
@@ -52,7 +52,7 @@
     [self.timer invalidate];
     self.timer = nil;
     self.enabled = YES;
-    [self setTitle:NSLocalizedString(@"Get verify code", nil) forState:UIControlStateNormal];
+    [self setTitle:@"获取验证码" forState:UIControlStateNormal];
 }
 
 @end
